@@ -1,0 +1,1 @@
+export { default } from "/home/louis/repo/web/nuxt-laravel-chat-app/node_modules/@nuxt/image/dist/runtime/components/NuxtImg.vue";

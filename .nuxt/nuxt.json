@@ -1,0 +1,9 @@
+{
+  "_hash": "5PqMi7m2xzHihMmFC14Q6ikzV5rDJHAqn0hzuxTYeeM",
+  "project": {
+    "rootDir": "/home/louis/repo/web/nuxt-laravel-chat-app"
+  },
+  "versions": {
+    "nuxt": "4.0.1"
+  }
+}

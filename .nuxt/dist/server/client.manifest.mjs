@@ -1,0 +1,1 @@
+export { default } from "file:///home/louis/repo/web/nuxt-laravel-chat-app/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
