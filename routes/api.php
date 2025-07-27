@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Spa\ContactController;
 use App\Http\Controllers\UploadController;
+use App\Services\RouteService;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,4 +34,10 @@ Route::prefix('api/v1')->group(function () {
             Route::post('upload', [UploadController::class, 'image'])->name('upload.image');
         });
     });
+});
+Route::middleware('auth:sanctum')->group(function () {
+    Route::group(['prefix' => 'contacts'], static function () {
+        RouteService::createCrudRoutes('contact', ContactController::class);
+    });
+
 });

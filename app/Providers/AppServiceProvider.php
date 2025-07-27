@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Helpers\Image;
 use App\Helpers\Utils;
+use App\Repositories\ContactRepository;
+use App\Repositories\Interfaces\ContactRepositoryInterface;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Auth\Notifications\VerifyEmail;
@@ -29,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
             $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
             $this->app->register(TelescopeServiceProvider::class);
         }
+
+        $this->app->singleton(ContactRepositoryInterface::class, ContactRepository::class);
     }
 
     /**

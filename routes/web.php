@@ -8,9 +8,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('auth:sanctum')->group(function () {
-    Route::group(['prefix' => 'contacts'], static function () {
-        RouteService::createCrudRoutes('contact', ContactController::class);
-    });
 
-});
