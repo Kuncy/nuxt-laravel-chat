@@ -20,6 +20,9 @@ Route::prefix('api/v1')->group(function () {
     Route::post('reset-password', [AuthController::class, 'resetPassword'])->name('password.store');
     Route::post('verification-notification', [AuthController::class, 'verificationNotification'])->middleware('throttle:verification-notification')->name('verification.send');
     Route::get('verify-email/{ulid}/{hash}', [AuthController::class, 'verifyEmail'])->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
+    Route::group(['prefix' => 'contacts'], static function () {
+        RouteService::createCrudRoutes('contact', ContactController::class);
+    });
 
     Route::middleware(["auth:" . config('auth.defaults.guard')])->group(function () {
         Route::post('logout', [AuthController::class, 'logout'])->name('logout');
@@ -34,10 +37,4 @@ Route::prefix('api/v1')->group(function () {
             Route::post('upload', [UploadController::class, 'image'])->name('upload.image');
         });
     });
-});
-Route::middleware('auth:sanctum')->group(function () {
-    Route::group(['prefix' => 'contacts'], static function () {
-        RouteService::createCrudRoutes('contact', ContactController::class);
-    });
-
 });
